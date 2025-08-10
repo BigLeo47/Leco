@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Dia dos Pais</title>
-    <style>
-        body {
-            margin: 0;
             font-family: Arial, sans-serif;
             background: linear-gradient(120deg, #ffcc70, #ff8177);
             display: flex;
@@ -70,31 +61,4 @@
                 opacity: 0;
             }
         }
-    </style>
-</head>
-<body>
-    <h1>💙 Feliz Dia dos Pais 💙</h1>
-    <button onclick="mostrarMensagem()">Clique aqui, Pai do Léo!</button>
-    <div id="mensagem">Pai, você é o meu herói! Te amo muito 💙</div>
-
-    <script>
-        function mostrarMensagem() {
-            document.getElementById("mensagem").style.display = "block";
-            soltarConfetes();
-        }
-
-        function soltarConfetes() {
-            for (let i = 0; i < 50; i++) {
-                let confete = document.createElement("div");
-                confete.classList.add("confete");
-                confete.style.left = Math.random() * 100 + "vw";
-                confete.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-                confete.style.animationDuration = (Math.random() * 3 + 2) + "s";
-                document.body.appendChild(confete);
-
-                setTimeout(() => confete.remove(), 5000);
-            }
-        }
-    </script>
-</body>
-</html>
+    </sty
