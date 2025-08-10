@@ -3,30 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Dia dos Pais ❤️</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Feliz Dia dos Pais</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #ffcc70, #ff8177);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        button {
+            background-color: #ff5f6d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #ff3b4a;
+            transform: scale(1.1);
+        }
+        #mensagem {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: white;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 10px;
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .confete {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            animation: cair 3s linear infinite;
+        }
+        @keyframes cair {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1 id="mensagem">Carregando...</h1>
-        <p class="sub">Você é o melhor pai do mundo! 👨‍👦</p>
-    </header>
+    <h1>💙 Feliz Dia dos Pais 💙</h1>
+    <button onclick="mostrarMensagem()">Clique aqui, Pai do Léo!</button>
+    <div id="mensagem">Pai, você é o meu herói! Te amo muito 💙</div>
 
-    <main>
-        <section class="dedicatoria">
-            <h2>Mensagem Especial</h2>
-            <p>
-                Pai, obrigado por todo o amor, carinho e por sempre estar ao meu lado. 
-                Hoje é o seu dia e quero que saiba que te amo muito! 💙
-            </p>
-        </section>
-    </main>
+    <script>
+        function mostrarMensagem() {
+            document.getElementById("mensagem").style.display = "block";
+            soltarConfetes();
+        }
 
-    <footer>
-        <p>&copy; 2025 - Do seu filho com amor 💌</p>
-    </footer>
+        function soltarConfetes() {
+            for (let i = 0; i < 50; i++) {
+                let confete = document.createElement("div");
+                confete.classList.add("confete");
+                confete.style.left = Math.random() * 100 + "vw";
+                confete.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confete.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(confete);
 
-    <!-- Importa o JavaScript -->
-    <script src="script.js"></script>
+                setTimeout(() => confete.remove(), 5000);
+            }
+        }
+    </script>
 </body>
 </html>
