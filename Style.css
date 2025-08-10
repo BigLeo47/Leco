@@ -1,65 +1,63 @@
+/* Fundo com gradiente animado */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(270deg, #ff7e5f, #feb47b);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
     color: white;
     text-align: center;
-    overflow-x: hidden;
 }
 
-header {
-    padding: 40px 20px;
-    background: rgba(0, 0, 0, 0.2);
+/* Animação do fundo */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
+/* Título */
 h1 {
-    font-size: 2.5rem;
-    animation: fadeIn 2s ease-in-out;
+    font-size: 3rem;
+    margin-top: 100px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
 }
 
-.sub {
-    font-size: 1.2rem;
-    margin-top: 10px;
-    opacity: 0.9;
-}
-
-.dedicatoria {
+/* Mensagem */
+p {
+    font-size: 1.5rem;
     margin: 20px auto;
-    max-width: 600px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 20px;
-    border-radius: 15px;
-    animation: fadeInUp 2s ease-in-out;
+    width: 80%;
 }
 
-footer {
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    margin-top: 30px;
+/* Botão interativo */
+button {
+    background-color: white;
+    color: #ff7e5f;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-/* Animações */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+button:hover {
+    background-color: #ff7e5f;
+    color: white;
+    box-shadow: 0 0 15px rgba(255,255,255,0.7);
 }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Balões/Corações subindo */
-.balao {
-    position: fixed;
-    bottom: -50px;
+/* Mensagem escondida */
+#mensagem {
+    display: none;
     font-size: 2rem;
-    animation: subir 5s linear infinite;
-    opacity: 0.8;
+    margin-top: 30px;
+    animation: aparecer 1s ease forwards;
 }
 
-@keyframes subir {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-110vh); }
+@keyframes aparecer {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
 }
